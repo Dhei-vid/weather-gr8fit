@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { useState } from "react";
+
 import { WeatherInfomation } from "../../types/types";
 import logo from "../../assets/weather_logo.png";
 
-import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MapIcon from "@mui/icons-material/Map";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -15,6 +15,9 @@ type CardWeatherProps = {
 };
 
 const WeatherLayout = ({ data }: CardWeatherProps) => {
+  if (data) {
+    console.log(data.cod);
+  }
   return (
     <div className="relative flex flex-col md:flex-row w-full max-w-[48rem] flex-row bg-white bg-clip-border text-gray-700 shadow-md h-full w-full bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 border border-gray-100">
       <div className="p-6">
@@ -56,7 +59,7 @@ const WeatherLayout = ({ data }: CardWeatherProps) => {
               <div className="flex gap-x-4 p-8 h-full w-full bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
                 <span className="flex gap-2 ">
                   <AirIcon />
-                  <p>{data.wind.speed}</p>
+                  <p>{data.wind.speed} MPH</p>
                   <span>Wind Speed</span>
                 </span>
               </div>
@@ -72,14 +75,18 @@ const WeatherLayout = ({ data }: CardWeatherProps) => {
               <div className="flex gap-x-4 col-span-2 justify-center p-8 h-full w-full bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
                 <span className="flex gap-2 ">
                   <AvTimerIcon />
-                  <p>{data.main.pressure}</p>
+                  <p>{data.main.pressure} Pa</p>
                 </span>
                 <span>Pressure</span>
               </div>
             </div>
           </div>
         ) : (
-          ""
+          <div className="text-center">
+            <div className="p-5">
+              <p className="uppercase">worried about the weather?</p>
+            </div>
+          </div>
         )}
       </div>
     </div>
