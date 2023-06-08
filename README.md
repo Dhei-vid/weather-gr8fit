@@ -1,6 +1,6 @@
 # Gr8fit Weather Task
 
-A fully responsive weather application.
+A responsive weather application.
 
 ## Technology used
 
