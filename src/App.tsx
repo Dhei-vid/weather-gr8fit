@@ -4,11 +4,13 @@ import { WeatherInfomation } from "./types/types";
 import Banner from "./component/utility/banner.component";
 import WeatherLayout from "./component/layout/weather.layout.component";
 import SearchBar from "./component/utility/searchbar.component";
+import ErrorMessage from "./component/error/error.component";
 
 const App = (): JSX.Element => {
   const [location, setLocation] = useState<string>("");
   const [locationWeatherData, setlocationWeatherData] =
     useState<WeatherInfomation | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchWeatherData = async (
     location: string
@@ -25,9 +27,11 @@ const App = (): JSX.Element => {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.log(error);
+      const errorMessage = (error as Error).message;
+      setError(errorMessage);
 
       throw error;
+    } finally {
     }
   };
 
@@ -63,7 +67,7 @@ const App = (): JSX.Element => {
         <div className="">
           <SearchBar
             location={location}
-            placeholder={"Type to see options"}
+            placeholder={"What city are you located?"}
             onChangeHandler={onSearchChange}
             onKeyDown={handleKeyDown}
           />
