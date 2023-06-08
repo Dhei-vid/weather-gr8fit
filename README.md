@@ -31,3 +31,45 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Project Structure
+
+
+```
+T-Weather
+└─ weather
+   ├─ .env
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ public
+   │  ├─ favicon.ico
+   │  ├─ index.html
+   │  ├─ logo192.png
+   │  ├─ logo512.png
+   │  ├─ manifest.json
+   │  └─ robots.txt
+   ├─ README.md
+   ├─ src
+   │  ├─ App.test.tsx
+   │  ├─ App.tsx
+   │  ├─ assets
+   │  │  ├─ weather_logo.png
+   │  │  └─ weather_logo_svg.svg
+   │  ├─ component
+   │  │  ├─ error
+   │  │  │  └─ error.component.tsx
+   │  │  ├─ layout
+   │  │  │  └─ weather.layout.component.tsx
+   │  │  └─ utility
+   │  │     ├─ banner.component.tsx
+   │  │     └─ searchbar.component.tsx
+   │  ├─ index.css
+   │  ├─ index.tsx
+   │  ├─ logo.svg
+   │  ├─ react-app-env.d.ts
+   │  ├─ reportWebVitals.ts
+   │  ├─ setupTests.ts
+   │  └─ types
+   │     └─ types.ts
+   ├─ tailwind.config.js
+   └─ tsconfig.json
+
+```
