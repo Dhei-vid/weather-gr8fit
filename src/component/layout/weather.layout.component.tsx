@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { WeatherInfomation } from "../../types/types";
 import logo from "../../assets/weather_logo.png";
 
@@ -15,9 +13,6 @@ type CardWeatherProps = {
 };
 
 const WeatherLayout = ({ data }: CardWeatherProps) => {
-  if (data) {
-    console.log(data.cod);
-  }
   return (
     <div className="relative flex flex-col md:flex-row w-full max-w-[48rem] flex-row bg-white bg-clip-border text-gray-700 shadow-md h-full w-full bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 border border-gray-100">
       <div className="p-6">
