@@ -1,10 +1,15 @@
-import { ReactNode } from "react";
+import { ErrorProps } from "../../types/types";
+import ErrorIcon from "@mui/icons-material/Error";
 
-const ErrorMessage = (message: ReactNode) => {
+const ErrorMessage: React.FC<ErrorProps> = ({ errorMessage }) => {
   return (
-    <div>
-      <div className="bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 border border-gray-100">
-        {message}
+    <div className="text-2xl text-center p-20 w-auto">
+      <div className="flex gap-3 justify-center bg-white-300 p-20 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 border border-gray-100">
+        <span className="flex gap-2 items-center">
+          <ErrorIcon color="error" />
+          Error message:{" "}
+        </span>
+        <span className="font-bold text-3xl text-red-700">{errorMessage}</span>
       </div>
     </div>
   );

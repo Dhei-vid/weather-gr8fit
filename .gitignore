@@ -25,3 +25,5 @@ yarn-error.log*
 #weather API
 .env
 
+
+.vercel

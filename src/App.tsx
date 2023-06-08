@@ -21,7 +21,7 @@ const App = (): JSX.Element => {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to fetch weather data");
+        throw Error("Failed to fetch weather data");
       }
 
       const data = await response.json();
@@ -30,7 +30,7 @@ const App = (): JSX.Element => {
       const errorMessage = (error as Error).message;
       setError(errorMessage);
 
-      throw error;
+      throw setError(errorMessage);
     } finally {
     }
   };
@@ -49,8 +49,6 @@ const App = (): JSX.Element => {
     }
   };
 
-  console.log(locationWeatherData);
-
   // GETTING DATA FROM INPUT BAR
   const onSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const searchFieldValue = event.target.value;
@@ -58,27 +56,31 @@ const App = (): JSX.Element => {
   };
 
   return (
-    <div className="">
-      {/* BANNER */}
-      <Banner />
-
-      {/* SEARCH BOX */}
-      <div className="grid justify-items-center w-full gap-12">
+    <>
+      {error ? (
+        <ErrorMessage errorMessage={error} />
+      ) : (
         <div className="">
-          <SearchBar
-            location={location}
-            placeholder={"What city are you located?"}
-            onChangeHandler={onSearchChange}
-            onKeyDown={handleKeyDown}
-          />
+          {/* BANNER */}
+          <Banner />
+          {/* SEARCH BOX */}
+          <div className="grid justify-items-center w-full gap-12">
+            <div className="">
+              <SearchBar
+                location={location}
+                placeholder={"What city are you located?"}
+                onChangeHandler={onSearchChange}
+                onKeyDown={handleKeyDown}
+              />
+            </div>
+            {/* WEATHER LAYOUT */}
+            <div>
+              <WeatherLayout data={locationWeatherData} />
+            </div>
+          </div>
         </div>
-
-        {/* WEATHER LAYOUT */}
-        <div>
-          <WeatherLayout data={locationWeatherData} />
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

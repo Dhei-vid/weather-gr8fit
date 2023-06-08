@@ -17,3 +17,7 @@ export type SearchBoxProps = {
   onChangeHandler: ChangeEventHandler<HTMLInputElement>;
   onKeyDown: KeyboardEventHandler<HTMLInputElement>;
 };
+
+export type ErrorProps = {
+  errorMessage: string;
+};
