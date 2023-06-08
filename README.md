@@ -7,6 +7,7 @@ A fully responsive weather application.
 - 📦 TypeScript.JS (create-react-app --template typescript)
 - 🎨 Tailwind CSS for styling
 - 🎨 MUI icons for icons.
+- 🌥️ OpenWeather map API for weather forecast.
 
 In the project directory, you can run:
 
@@ -14,6 +15,20 @@ In the project directory, you can run:
 - First fork this repository to have it in your GitHub repo(optional).
 - git clone https://github.com/Dhei-vid/weather-gr8fit/.git in terminal.
 - cd into the project folder.
+
+## Getting the API Key
+- Navigate to https://openweathermap.org/
+- if (have account) {
+    sign in
+  } else {
+    sign up
+  }
+- Get the free API key
+- create a .env file in src 
+- type 
+```
+REACT_APP_OPEN_WEATHER_API_KEY={API KEY}
+```
 
 ## Installation
 
