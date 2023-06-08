@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { WeatherInfomation } from "../../types/types";
+import logo from "../../assets/weather_logo.png";
 
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -18,7 +19,7 @@ const WeatherLayout = ({ data }: CardWeatherProps) => {
     <div className="relative flex flex-col md:flex-row w-full max-w-[48rem] flex-row bg-white bg-clip-border text-gray-700 shadow-md h-full w-full bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 border border-gray-100">
       <div className="p-6">
         <div className="flex gap-3 text-gray-600 text-2xl justify-center">
-          <CloudQueueIcon fontSize="large" />
+          <img className="w-[3rem] h-[3rem]" src={logo} alt="logo" />
           <h6 className="mb-4 block font-sans font-semibold uppercase leading-relaxed tracking-normal antialiased text-center">
             WEATHER today
           </h6>
