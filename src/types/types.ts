@@ -11,6 +11,10 @@ export type WeatherInfomation = {
   wind: { speed: number };
 };
 
+export type CardWeatherProps = {
+  data: WeatherInfomation | null;
+};
+
 export type SearchBoxProps = {
   location: string;
   placeholder?: string;
