@@ -88,3 +88,5 @@ T-Weather
    └─ tsconfig.json
 
 ```
+## Assumptions
+- SI units (Temperature is Fahrenheit (°F), Pressure is Pascal(Pa), Humidity is Fahrenheit (°F), Wind speed is in Miles per hour (MPH))
