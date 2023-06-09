@@ -1,4 +1,4 @@
-import { WeatherInfomation } from "../../types/types";
+import { WeatherInfomation, CardWeatherProps } from "../../types/types";
 import logo from "../../assets/weather_logo.png";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -7,10 +7,6 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import AirIcon from "@mui/icons-material/Air";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import AvTimerIcon from "@mui/icons-material/AvTimer";
-
-type CardWeatherProps = {
-  data: WeatherInfomation | null;
-};
 
 const WeatherLayout = ({ data }: CardWeatherProps) => {
   return (
