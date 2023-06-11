@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { SearchBoxProps } from "../../types/types";
 
 const SearchBar = ({
@@ -6,6 +7,8 @@ const SearchBar = ({
   location,
   onKeyDown,
 }: SearchBoxProps) => {
+  const inputRef = useRef(null);
+
   return (
     <div
       className={`w-screen h-[10rem] bg-gradient-to-r from-slate-100 to-slate-800`}
@@ -14,10 +17,12 @@ const SearchBar = ({
         <input
           className="self-center placeholder:italic placeholder:text-slate-400 block bg-white w-[50vw] rounded-sm border-slate-300 py-3 pl-3 pr-3 shadow-sm focus:outline-none focus:border-gray-500  focus:ring-1 sm:text-sm"
           type="text"
+          ref={inputRef}
           placeholder={placeholder}
           onChange={onChangeHandler}
           value={location}
           onKeyDownCapture={onKeyDown}
+          autoFocus
         />
       </div>
     </div>
