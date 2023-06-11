@@ -6,17 +6,22 @@ import WeatherLayout from "./component/layout/weather.layout.component";
 import SearchBar from "./component/utility/searchbar.component";
 import ErrorMessage from "./component/error/error.component";
 
+import { getData } from "./component/api/api.component";
+
 const App = (): JSX.Element => {
   const [location, setLocation] = useState<string>("");
   const [locationWeatherData, setlocationWeatherData] =
     useState<WeatherInfomation | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchWeatherData = async (
-    location: string
-  ): Promise<WeatherInfomation> => {
+  // : Promise<WeatherInfomation>
+  const fetchWeatherData = async (location: string) => {
     try {
-      const response = await fetch(
+      // const response = await fetch(
+      //   `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
+      // );
+
+      const response: any = await getData<WeatherInfomation>(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
       );
 
@@ -24,8 +29,8 @@ const App = (): JSX.Element => {
         throw Error("Failed to fetch weather data");
       }
 
-      const data = await response.json();
-      return data;
+      // return data;
+      return response;
     } catch (error) {
       const errorMessage = (error as Error).message;
       setError(errorMessage);
@@ -35,7 +40,7 @@ const App = (): JSX.Element => {
     }
   };
 
-  // testing something
+  // using the enter keypad as a trigger point
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -45,6 +50,8 @@ const App = (): JSX.Element => {
           weatherData && setlocationWeatherData(weatherData);
         }
       });
+
+      // clear the input element
       setLocation("");
     }
   };
