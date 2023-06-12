@@ -17,10 +17,6 @@ const App = (): JSX.Element => {
   // : Promise<WeatherInfomation>
   const fetchWeatherData = async (location: string) => {
     try {
-      // const response = await fetch(
-      //   `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
-      // );
-
       const response: any = await getData<WeatherInfomation>(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
       );
